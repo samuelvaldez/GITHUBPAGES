@@ -10,6 +10,19 @@ function myFunction() {
    //     // document.getElementById("demo").innerHTML = body;
    //     console.log(body.login);
    //  });\
-
-   alert("Hello World");
+   var message = $("#inputText").val();
+   var xhr = new XMLHttpRequest();
+    var data = message;
+    
+    xhr.open('GET', '/data/' +data);
+    xhr.onload = function(data) {
+        console.log('loaded', this.responseText);
+        $('#demo2').append(this.responseText);
+    };
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify(data));
   }
+
+
+
+  
