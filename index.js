@@ -1,13 +1,15 @@
 
+//Require Express for easier serves.
 const express = require('express');
 const app = express();
 const {readFile} = require('fs').promises;
 var path = require("path");
 var github = require('octonode');
 var bodyParser = require('body-parser');
+var client = github.client();
+var ghsearch = client.search();
 
-var github = require('octonode');
-// Then we instantiate a client with or without a token (as show in a later section)
+
 app.use( express.static('public'));
 
 app.use(bodyParser.json());
@@ -22,21 +24,24 @@ app.get('/', async (request, response) => {
 });
 
 app.get('/data/:param1', function(req, res){
-    console.log('body: ',  req.params.param1);
+    //console.log('body: ',  req.params.param1);
 
-    var client = github.client();
-    
-    client.get('/users/pksunkara', {}, function (err, status, body, headers) {
-    //console.log(body);
+    //var client = github.client();
+
+ghsearch.users({ q: req.params.param1 + '+followers:>100', sort: 'created', order: 'asc'
+}, function (err, status, body, headers) {
+    console.log(body); //json object
+    res.send(JSON.stringify(body));
+});
+    // ghsearch.get('/users?login='+req.params.param1, {}, function (err, status, body, headers) {
+       
+      
+    //   //res.send( req.params.param1);
+    // });
 
     
-    });
-    res.send( req.params.param1);
     
 });
-
-
-
 
 
 
