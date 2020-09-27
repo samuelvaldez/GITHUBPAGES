@@ -23,15 +23,32 @@ app.get('/', async (request, response) => {
     response.send( await readFile('./home.html','utf8'));
 });
 
-app.get('/data/:param1', function(req, res){
+app.get('/data', function(req, res){
     //console.log('body: ',  req.params.param1);
-
+    console.log(req.query.param2);
     //var client = github.client();
 
-ghsearch.users({ q: req.params.param1 + '+followers:>100', sort: 'created', order: 'asc'
-}, function (err, status, body, headers) {
-    console.log(body); //json object
-    res.send(JSON.stringify(body));
+ghsearch.users({ q: req.query.param1 , sort: 'created',order: 'asc',per_page: 20, page: req.query.param2
+}, function (err, data,headers) {
+
+    //console.log(data); //json object
+    const link = headers.link;
+    const links = link.split(",");
+    const urls = links.map(a=> {
+        return {
+            url: a.split(";")[0].replace(">","").replace("<",""),
+            title: a.split(";")[1]
+        }
+
+    })
+
+    const newData = {
+        jsonData: data,
+        urlData: urls
+    }
+
+
+    res.send(JSON.stringify(newData));
 });
     // ghsearch.get('/users?login='+req.params.param1, {}, function (err, status, body, headers) {
        

@@ -1,0 +1,35 @@
+[33mcommit f4a2dad13be0bdcda8e24f95afaa2734c6a09e0b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Samuel Valdez <savaldez@csumb.edu>
+Date:   Fri Sep 25 22:59:22 2020 -0700
+
+     Added correct code to get back  api results from users from github server
+
+[33mcommit 936abded3607b70752c85d972a4b057198d4635b[m
+Author: Samuel <savaldez@csumb.edu>
+Date:   Fri Sep 25 21:05:30 2020 -0700
+
+    Installed nodemon to our code for we can just refresh our browser and not our server, changed html files in home and scripts to make sure user types something in instead of leaving the text box blank.
+
+[33mcommit 274d1becc83824e0899ebd6db33d81b940a06f91[m
+Author: Samuel Valdez <savaldez@csumb.edu>
+Date:   Fri Sep 25 02:51:38 2020 -0700
+
+    Connect client side js to backend node js. I can now send text from client to back end ready then send it back to the client
+
+[33mcommit 7c04d7ee64e1ca708ecc345fdcec0c87bb26b9bf[m
+Author: Samuel Valdez <savaldez@csumb.edu>
+Date:   Fri Sep 25 00:31:21 2020 -0700
+
+    Added folder system for our app and also edited the index.js file to let clients see images/css/js files
+
+[33mcommit 3738894d916059f8bdd1b0b4646b1e7246269114[m
+Author: Samuel Valez <savaldez@csumb.edu>
+Date:   Thu Sep 24 21:43:30 2020 -0700
+
+    adding octonode to project, library for nodejs to access github v3 api.
+
+[33mcommit d8a08252fc9ddfab80b6d65343988fd4acd3c889[m
+Author: Samuel Valez <savaldez@csumb.edu>
+Date:   Thu Sep 24 21:33:49 2020 -0700
+
+    Starter files for a node server working with google app engine. It has yaml file, package, js, and html files.
