@@ -16,19 +16,39 @@
 </div>
     
 
-<div class="container" id="listView"></div>
+<div class="container" id="listView">
 
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12" id='results'>
         <div id="errorMessage" hidden>Please Enter some text</div>
         <input type="text" id="inputText" required><br>
         <button onclick="getSearch(1)">Click me</button>
+
+
     </div>
     
   </div>
 
-  <div class="row"></div>
-<div id="divResults"></div>
+  <div class="row">
+  <div class="col-sm-4">
+    <div id="divResults"></div>
+  
+  </div>
+  <div class="col-sm-4"> </div>
+  <div class="col-sm-4"> </div>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4"> 
+       <div id="whereButtonsGo"></div>
+   </div>
+    <div class="col-sm-4"> </div>
+  
+    </div>
+  
+
 </div>
 
 
@@ -40,7 +60,9 @@
 
 
 
-</div>
+
+
+
 <script type="text/javascript" src="js/scripts.js">
 
 

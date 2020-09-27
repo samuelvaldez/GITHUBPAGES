@@ -1,6 +1,8 @@
 //var github = require('octonode');
    //  var client = github.client();
 
+//const { user } = require("octonode");
+
    //  client.get('/users/pksunkara', {}, function (err, status, body, headers) {
    //     // document.getElementById("demo").innerHTML = body;
    //     console.log(body.login);
@@ -37,9 +39,10 @@ function getSearch(page) {
 
 
 function separateData(jsonRes, mapUrl) {
-  //console.log(mapUrl[0])
+  console.log(jsonRes)
   var urlArr = parseUrl(mapUrl);
   parseData(jsonRes['items'], urlArr)
+  showTotalCount(jsonRes['total_count'])
 }
 
 function parseUrl(mUrl){
@@ -59,7 +62,7 @@ var final;
     final = pat.split('=');
 
     resArray.push(final[1])
-    console.log(mUrl)
+    //console.log(mUrl)
     resArray.push(mUrl[item]['title'])
   }
 return resArray   
@@ -71,22 +74,23 @@ function parseData(jsonRes, urlArr) {
   document.getElementById("divResults").innerHTML = "";
   for(var item in jsonRes){
     
-
+    
     
     //console.log(jsonRes[item])
     createUserName(jsonRes[item]['login'])
     createAvatar(jsonRes[item]['avatar_url'])
   }
 
-  const divExport = document.getElementById("divResults");
+  const divButton = document.getElementById("whereButtonsGo");
+  divButton.innerHTML = "";
   var i;
 for (i = 0; i < urlArr.length; i=i+2) {
       const btn = document.createElement("button")
-      console.log(urlArr[i])
+      //console.log(urlArr[i])
       btn.textContent = urlArr[i+1];
       const num = parseInt(urlArr[i]);
       btn.addEventListener("click", e=> getSearch(num))
-      divExport.appendChild(btn);
+      divButton.appendChild(btn);
       
 }
 
@@ -96,15 +100,17 @@ for (i = 0; i < urlArr.length; i=i+2) {
 }
 
 
-  function createUserName(userName) {
+function createUserName(userName) {
     const divExport = document.getElementById("divResults");
-    var header = document.createElement("header")
-    var x =  document.createElement("h3");
-    x.textContent =  userName;
     
-    header.appendChild(x);
-divExport.appendChild(header);
-    
+    var aTag = document.createElement('a');
+  aTag.setAttribute('href',"yourlink.htm");
+  aTag.innerText = userName;
+ 
+    divExport.appendChild(aTag);
+
+
+
   }
   function createAvatar(imageUrl) {
     const divExport = document.getElementById("divResults");
@@ -116,4 +122,10 @@ divExport.appendChild(header);
     divExport.appendChild(x);
   }
 
-  
+function showTotalCount(totalCount){
+  const results = document.getElementById("results");
+  var h = document.createElement("H1");
+  var t = document.createTextNode("RESULTS: " +totalCount);
+  h.appendChild(t);
+  results.appendChild(h);
+}

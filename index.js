@@ -28,7 +28,7 @@ app.get('/data', function(req, res){
     console.log(req.query.param2);
     //var client = github.client();
 
-ghsearch.users({ q: req.query.param1 , sort: 'created',order: 'asc',per_page: 20, page: req.query.param2
+ghsearch.users({ q: req.query.param1 , sort: 'created',order: 'asc',per_page: 10, page: req.query.param2
 }, function (err, data,headers) {
 
     //console.log(data); //json object
