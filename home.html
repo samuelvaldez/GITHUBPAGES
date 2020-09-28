@@ -1,41 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Github Search</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+  <h1>GITHUB SEARCH</h1>
+  <p>SEARCH USERS</p> 
 </div>
     
 
 <div class="container" id="listView">
 
-<div class="row">
-    <div class="col-sm-12" id='results'>
+  <div class="row">
+    <div class="col-sm-4">
         <div id="errorMessage" hidden>Please Enter some text</div>
         <input type="text" id="inputText" required><br>
-        <button onclick="getSearch(1)">Click me</button>
-
-
+        <button onclick="getSearch(1)">Search</button>
     </div>
-    
+    <div class="col-sm-8" id='results'></div>
   </div>
 
   <div class="row">
-  <div class="col-sm-4">
-    <div id="divResults"></div>
-  
-  </div>
-  <div class="col-sm-4"> </div>
-  <div class="col-sm-4"> </div>
+    <div class="col-sm-4">
+      <div id="divResults"></div>
+    </div>
+    <div class="col-sm-4"> </div>
+    <div class="col-sm-4"> </div>
 
   </div>
   
@@ -43,24 +41,10 @@
     <div class="col-sm-4"></div>
     <div class="col-sm-4"> 
        <div id="whereButtonsGo"></div>
-   </div>
-    <div class="col-sm-4"> </div>
-  
     </div>
-  
-
+    <div class="col-sm-4"> </div>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <script type="text/javascript" src="js/scripts.js">
